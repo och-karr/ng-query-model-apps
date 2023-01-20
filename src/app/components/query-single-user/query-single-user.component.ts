@@ -18,14 +18,22 @@ export class QuerySingleUserComponent {
     this._roleService.getAll()
   ]).pipe(
     map(([users, roles]: [UserModel[], RoleModel[]]) => {
-      return users.map(user => {
-        let currRole = roles.find(role => role.id === user.roleId);
-        // console.log(currRole);
-        return {
+      // return users.map(user => {
+      //   let currRole = roles.find(role => role.id === user.roleId);
+      //   return {
+      //     email: user.email,
+      //     role: currRole ? currRole.role : ''
+      //   }
+      // })
+      const roleMap = roles.reduce((a, c) => {
+        return {...a, [c.id]: c}
+      }, {}) as Record<string, RoleModel>
+
+      return users.map(user => ({
           email: user.email,
-          role: currRole ? currRole.role : ''
-        }
-      })
+          role: roleMap[user.roleId] && roleMap[user.roleId].role ? roleMap[user.roleId].role : ''
+        })
+      )
     })
   )
 
