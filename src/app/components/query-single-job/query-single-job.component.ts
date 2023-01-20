@@ -26,19 +26,10 @@ export class QuerySingleJobComponent {
 
   private _mapToJobWithTagsQuery(jobs: JobModel[], jobTags: JobTagModel[]): JobWithTagsQueryModel[] {
     const jobTagsMap = jobTags.reduce((a, c) => {
-      // console.log(jobTags)
-      // console.log('a', a)
-      // console.log(c.id)
-      // console.log({[c.id]: c})
-      // console.log({...a, [c.id]: c})
       return {...a, [c.id]: c}
     }, {}) as Record<string, JobTagModel>
 
     return jobs.map((job) => {
-      console.log(({
-        title: job.title,
-        tagNames: job.jobTagIds.map((jId) => jobTagsMap[jId].name)
-      }))
       return ({
         title: job.title,
         tagNames: job.jobTagIds.map((jId) => jobTagsMap[jId].name)
