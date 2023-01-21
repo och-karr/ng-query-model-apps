@@ -9,16 +9,16 @@
 
   <ng-template #notLoading>
     <mat-list role="list" *ngIf="refresh.value; else isError">
-      <mat-list-item role="listitem" *ngFor="let item of refresh.value | async">
+      <mat-list-item role="listitem" *ngFor="let item of refresh.value ? refresh.value : undefined | async">
         {{ item }}
       </mat-list-item>
     </mat-list>
-<!--    {{refresh.value}}-->
 
     <ng-template #isError>
-
+      <p>Oops something went wrong</p>
     </ng-template>
   </ng-template>
 
 </ng-container>
-<button (click)="refreshData()">Refresh</button>
+
+<button mat-raised-button color="primary" (click)="refreshData()">Try again</button>

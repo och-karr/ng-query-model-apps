@@ -18,7 +18,7 @@ export class QueryLoaderNamesComponent {
 
   public refresh$: Observable<{
     isLoading: boolean;
-    value?: string[] | undefined;
+    value?: string[];
     error?: HttpErrorResponse | Error;
   }> = this._refreshSubject.asObservable().pipe(
     switchMap(() =>
