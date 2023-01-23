@@ -13,6 +13,10 @@ import {
 } from './components/query-string-multi-user/query-string-multi-user.component-module';
 import {DepartmentServiceModule} from './services/department.service-module';
 
+import { QueryLoaderNamesComponent } from './components/query-loader-names/query-loader-names.component';
+import { QueryLoaderNamesComponentModule } from './components/query-loader-names/query-loader-names.component-module';
+import { SlowDataServiceModule } from './services/slow-data.service-module';
+
 @NgModule({
   imports: [RouterModule.forRoot([{
     path: 'query-single-user',
@@ -20,8 +24,7 @@ import {DepartmentServiceModule} from './services/department.service-module';
   }, {path: 'query-array-single-job', component: QuerySingleJobComponent}, {
     path: 'query-string-multi-user',
     component: QueryStringMultiUserComponent
-  }]), QuerySingleUserComponentModule, UserServiceModule, RoleServiceModule, QuerySingleJobComponentModule, JobServiceModule, QueryStringMultiUserComponentModule, DepartmentServiceModule],
+  }, { path: 'query-loader-names', component: QueryLoaderNamesComponent }]), QuerySingleUserComponentModule, UserServiceModule, RoleServiceModule, QuerySingleJobComponentModule, JobServiceModule, QueryStringMultiUserComponentModule, DepartmentServiceModule, QueryLoaderNamesComponentModule, SlowDataServiceModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
