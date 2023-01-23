@@ -1,0 +1,12 @@
+<div style="flex-direction: row; flex-wrap: wrap">
+  <div style="width: 50%; display: inline-block; padding: 5px; box-sizing: border-box; text-align: center;"
+       *ngFor="let item of advancedUsers$ | async">
+    <mat-card style="display: inline-block;">
+      <mat-card-title>{{item.email}}</mat-card-title>
+      <mat-card-content>
+        Role is: {{item.role}} and works in: {{item.department}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
