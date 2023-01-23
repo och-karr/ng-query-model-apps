@@ -2,14 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { QueryMultiNestedOrgsComponent } from './components/query-multi-nested-orgs/query-multi-nested-orgs.component';
 import { QuerySingleNestedProductsWithStockComponent } from './components/query-single-nested-products-with-stock/query-single-nested-products-with-stock.component';
+import { QuerySingleNestedProdsWithCatsComponent } from './components/query-single-nested-prods-with-cats/query-single-nested-prods-with-cats.component';
 import { QueryMultiNestedOrgsComponentModule } from './components/query-multi-nested-orgs/query-multi-nested-orgs.component-module';
 import { OrganizationsServiceModule } from './services/organizations.service-module';
 import { UsersWithAvatarsServiceModule } from './services/users-with-avatars.service-module';
 import { QuerySingleNestedProductsWithStockComponentModule } from './components/query-single-nested-products-with-stock/query-single-nested-products-with-stock.component-module';
 import { ProductsServiceModule } from './services/products.service-module';
+import { QuerySingleNestedProdsWithCatsComponentModule } from './components/query-single-nested-prods-with-cats/query-single-nested-prods-with-cats.component-module';
+import { CategoryProductsServiceModule } from './services/category-products.service-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'query-multi-nested-orgs', component: QueryMultiNestedOrgsComponent }, { path: 'query-single-nested', component: QuerySingleNestedProductsWithStockComponent }]), QueryMultiNestedOrgsComponentModule, OrganizationsServiceModule, UsersWithAvatarsServiceModule, QuerySingleNestedProductsWithStockComponentModule, ProductsServiceModule],
+  imports: [RouterModule.forRoot([{ path: 'query-multi-nested-orgs', component: QueryMultiNestedOrgsComponent }, { path: 'query-single-nested', component: QuerySingleNestedProductsWithStockComponent }, { path: 'query-single-nested-prods-with-cats', component: QuerySingleNestedProdsWithCatsComponent }]), QueryMultiNestedOrgsComponentModule, OrganizationsServiceModule, UsersWithAvatarsServiceModule, QuerySingleNestedProductsWithStockComponentModule, ProductsServiceModule, QuerySingleNestedProdsWithCatsComponentModule, CategoryProductsServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

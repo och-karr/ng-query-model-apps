@@ -1,0 +1,13 @@
+<mat-card *ngIf="productsWithCat$ | async">
+  <div *ngFor="let item of productsArray$ | async">
+    <mat-card-title>{{ item.product.title }} for only ${{item.product.price}}</mat-card-title>
+    <mat-card-content>
+      <p>Other products</p>
+      <mat-chip-list>
+        <mat-chip *ngFor="let i of item.data.data">
+          {{ i.title }}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+  </div>
+</mat-card>
