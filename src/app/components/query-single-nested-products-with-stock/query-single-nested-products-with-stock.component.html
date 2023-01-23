@@ -1,0 +1,12 @@
+<mat-accordion *ngIf="products$ | async as products">
+  <mat-expansion-panel *ngFor="let item of products">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{item.name}} {{item.price | currency}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    In stock: {{item.stock}}
+
+
+  </mat-expansion-panel>
+</mat-accordion>
