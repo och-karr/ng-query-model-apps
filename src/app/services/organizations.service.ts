@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {forkJoin, map, Observable} from 'rxjs';
-import { OrganizationModel } from '../models/organization.model';
-import { TeamModel } from '../models/team.model';
+import {OrganizationModel} from '../models/organization.model';
+import {TeamModel} from '../models/team.model';
 
 @Injectable()
 export class OrganizationsService {
@@ -28,9 +28,7 @@ export class OrganizationsService {
       ids.map((id) =>
         this._httpClient.get<TeamModel[]>(
           `https://636ce2d8ab4814f2b2712854.mockapi.io/organizations/${id}/teams`
-  )
-  )
-  ).pipe(
+        ))).pipe(
       map((orgWithTeams: TeamModel[][]) =>
         orgWithTeams.reduce(
           (a, c, idx) => ({
